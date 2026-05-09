@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Delete Account — Rep: The Workout App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Sand & Clay theme (default) ── */
+    :root {
+      --bg:            #F7EEDC;
+      --surface:       #FCF6E9;
+      --surface-alt:   #EDDFC4;
+      --surface-muted: #F1E5CB;
+
+      --text:          #3E2819;
+      --text-sub:      #735440;
+      --text-muted:    #A38872;
+      --text-on-accent:#FFFFFF;
+
+      --border:        #DFD0B4;
+      --divider:       rgba(62,40,25,0.09);
+
+      --accent:        #B8603C;
+      --accent-fg:     #FFFFFF;
+      --accent-muted:  rgba(184,96,60,0.14);
+      --accent-text:   #934A2C;
+
+      --danger-bg:     rgba(185,74,63,0.12);
+      --danger-text:   #8F3528;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.25rem;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      background: var(--accent);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--accent-fg);
+      flex-shrink: 0;
+    }
+
+    .header-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .header-title span { color: var(--text-muted); font-weight: 400; }
+
+    main {
+      flex: 1;
+      max-width: 600px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 3rem;
+    }
+
+    .page-heading { margin-bottom: 1.75rem; }
+
+    .page-heading h1 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
+
+    .page-heading p {
+      font-size: 0.88rem;
+      color: var(--text-sub);
+    }
+
+    .section-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.55rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+
+    .step-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.875rem;
+      padding: 0.875rem 1rem;
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .step-row:last-child { border-bottom: none; }
+
+    .step-num {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--accent-muted);
+      color: var(--accent-text);
+      font-size: 0.72rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .step-content strong {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.1rem;
+    }
+
+    .step-content p {
+      font-size: 0.81rem;
+      color: var(--text-sub);
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    .contact-row-left strong {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.15rem;
+    }
+
+    .contact-row-left p {
+      font-size: 0.81rem;
+      color: var(--text-sub);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      background: var(--accent);
+      color: var(--accent-fg);
+      font-size: 0.81rem;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: opacity 0.15s;
+    }
+
+    .btn:hover { opacity: 0.85; }
+
+    .data-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 1rem;
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .data-row:last-child { border-bottom: none; }
+
+    .data-label { font-size: 0.88rem; color: var(--text); }
+
+    .badge {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 3px 9px;
+      border-radius: 20px;
+      background: var(--danger-bg);
+      color: var(--danger-text);
+    }
+
+    .info-note {
+      background: var(--surface-muted);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.875rem 1rem;
+      font-size: 0.81rem;
+      color: var(--text-sub);
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      padding: 1rem 1.25rem;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    footer a { color: var(--accent-text); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 480px) {
+      .contact-row { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-mark">R</div>
+    <div class="header-title">Rep <span>— The Workout App</span></div>
+  </header>
+
+  <main>
+
+    <div class="page-heading">
+      <h1>Delete Account</h1>
+      <p>You can delete individual workouts directly inside the app. To request full deletion of your account and all personal data, contact us using the steps below.</p>
+    </div>
+
+    <p class="section-label">Delete a workout — in app</p>
+    <div class="card">
+      <div class="step-row">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <strong>Open Rep</strong>
+          <p>Launch the app on your device.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <strong>Go to your workout history</strong>
+          <p>Navigate to the workout or session you want to remove.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <strong>Delete the workout</strong>
+          <p>Tap the delete option. This is permanent and cannot be undone.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="section-label">Delete your full account — contact us</p>
+    <div class="card" style="margin-bottom: 0.75rem;">
+      <div class="contact-row">
+        <div class="contact-row-left">
+          <strong>Email us to request account deletion</strong>
+          <p>Send from the email address linked to your Rep account.</p>
+        </div>
+        <a class="btn" href="mailto:rep.app.dev@gmail.com?subject=Account%20Deletion%20Request&body=Hi%2C%20I%20would%20like%20to%20request%20deletion%20of%20my%20Rep%20account%20and%20all%20associated%20data.%0A%0ARegistered%20email%3A%20">
+          Email us ↗
+        </a>
+      </div>
+    </div>
+
+    <div class="info-note">
+      We'll process your request within <strong>30 days</strong>. Please send the email from the address associated with your Rep account so we can verify and complete the deletion.
+    </div>
+
+    <p class="section-label">What happens to your data</p>
+    <div class="card">
+      <div class="data-row">
+        <span class="data-label">Email address</span>
+        <span class="badge">Deleted</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">Account / User ID</span>
+        <span class="badge">Deleted</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">Workout &amp; fitness data</span>
+        <span class="badge">Deleted</span>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    Rep — The Workout App &nbsp;·&nbsp;
+    <a href="index.html">Privacy Policy</a> &nbsp;·&nbsp;
+    Questions? <a href="mailto:rep.app.dev@gmail.com">rep.app.dev@gmail.com</a>
+  </footer>
+
+</body>
+</html>
