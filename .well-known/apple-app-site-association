@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["KBNS927W3Q.com.repworkouttracker.app"],
+        "components": [
+          { "/": "/template/*" }
+        ]
+      }
+    ]
+  }
+}
