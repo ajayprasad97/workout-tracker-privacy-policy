@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ — Rep: The Workout App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Sand & Clay theme ── */
+    :root {
+      --bg:            #F7EEDC;
+      --surface:       #FCF6E9;
+      --surface-alt:   #EDDFC4;
+      --surface-muted: #F1E5CB;
+      --text:          #3E2819;
+      --text-sub:      #735440;
+      --text-muted:    #A38872;
+      --text-on-accent:#FFFFFF;
+      --border:        #DFD0B4;
+      --divider:       rgba(62,40,25,0.09);
+      --accent:        #B8603C;
+      --accent-fg:     #FFFFFF;
+      --accent-muted:  rgba(184,96,60,0.14);
+      --accent-text:   #934A2C;
+      --danger-bg:     rgba(185,74,63,0.12);
+      --danger-text:   #8F3528;
+      --info-bg:       rgba(62,40,25,0.06);
+      --warn-bg:       rgba(185,74,63,0.09);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Header ── */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.25rem;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      background: var(--accent);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--accent-fg);
+      flex-shrink: 0;
+    }
+    .header-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .header-title span { color: var(--text-muted); font-weight: 400; }
+
+    /* ── Main layout ── */
+    main {
+      flex: 1;
+      max-width: 680px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 3.5rem;
+    }
+
+    /* ── Page heading ── */
+    .page-heading {
+      margin-bottom: 1.75rem;
+    }
+    .page-heading h1 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+    .page-heading p {
+      font-size: 0.88rem;
+      color: var(--text-sub);
+    }
+
+    /* ── Section heading (h2) ── */
+    h2 {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.55rem;
+      margin-top: 2rem;
+    }
+    h2:first-of-type { margin-top: 0; }
+
+    /* ── Cards ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    /* ── Content rows inside cards ── */
+    .content-row {
+      padding: 0.875rem 1rem;
+      border-bottom: 1px solid var(--divider);
+    }
+    .content-row:last-child { border-bottom: none; }
+    .content-row h3 {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+    .content-row p,
+    .content-row ul,
+    .content-row ol {
+      font-size: 0.81rem;
+      color: var(--text-sub);
+      line-height: 1.65;
+    }
+    .content-row ul,
+    .content-row ol {
+      padding-left: 1.1rem;
+      margin-top: 0.3rem;
+    }
+    .content-row li { margin-bottom: 0.25rem; }
+    .content-row li strong { color: var(--text); font-weight: 500; }
+    .content-row a { color: var(--accent-text); text-decoration: none; }
+    .content-row a:hover { text-decoration: underline; }
+    .content-row code {
+      background: var(--surface-alt);
+      border-radius: 4px;
+      padding: 1px 5px;
+      font-size: 0.78rem;
+      color: var(--accent-text);
+      font-family: 'SF Mono', 'Fira Mono', monospace;
+    }
+    .content-row .sub-heading {
+      font-size: 0.81rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-top: 0.75rem;
+      margin-bottom: 0.25rem;
+    }
+
+    /* ── Callout boxes ── */
+    .callout {
+      border-radius: 10px;
+      padding: 0.875rem 1rem;
+      font-size: 0.81rem;
+      color: var(--text-sub);
+      line-height: 1.65;
+      margin-top: 0.6rem;
+    }
+    .callout.info {
+      background: var(--info-bg);
+      border: 1px solid var(--border);
+      border-left: 3px solid #735440;
+    }
+    .callout.note {
+      background: var(--surface-muted);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+    }
+    .callout p { margin: 0; }
+    .callout strong { color: var(--text); font-weight: 500; }
+
+    /* ── Contact box ── */
+    .contact-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem;
+    }
+    .contact-row-left strong {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.15rem;
+    }
+    .contact-row-left p {
+      font-size: 0.81rem;
+      color: var(--text-sub);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      background: var(--accent);
+      color: var(--accent-fg);
+      font-size: 0.81rem;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: opacity 0.15s;
+    }
+    .btn:hover { opacity: 0.85; }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      padding: 1rem 1.25rem;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+    footer a { color: var(--accent-text); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 480px) {
+      .contact-row { flex-direction: column; align-items: flex-start; }
+      main { padding: 1.5rem 1rem 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-mark">R</div>
+    <div class="header-title">Rep <span>— The Workout App</span></div>
+  </header>
+
+  <main>
+    <div class="page-heading">
+      <h1>Frequently Asked Questions</h1>
+      <p>Answers to common questions about how Rep works.</p>
+    </div>
+
+    <!-- Calories & Activity -->
+    <h2>Calories &amp; Activity</h2>
+    <div class="card">
+      <div class="content-row">
+        <h3>How does Rep estimate calories burned during a workout?</h3>
+        <p>Rep uses two sources for calorie data, in order of accuracy:</p>
+
+        <p class="sub-heading">1. Your wearable (when connected)</p>
+        <p>If you have Apple Health or Google Health Connect set up and a compatible wearable, Rep reads the active calories your device recorded during the session. This is based on your heart rate, movement, and personal stats — calculated by your wearable's own algorithms, not by Rep.</p>
+        <p style="margin-top:0.5rem;">Compatible devices:</p>
+        <ul>
+          <li><strong>iOS:</strong> Apple Watch, Garmin, Polar, WHOOP (any device that writes to Apple Health)</li>
+          <li><strong>Android:</strong> Samsung Galaxy Watch, Fitbit, Garmin, Pixel Watch (any device that writes to Health Connect)</li>
+        </ul>
+        <div class="callout note">
+          <p><strong>Note:</strong> Fitbit on iPhone does not sync to Apple Health (Fitbit dropped that integration in 2022), so iOS Fitbit users will see an estimate instead.</p>
+        </div>
+
+        <p class="sub-heading">2. MET-based estimate (when no wearable data is available)</p>
+        <p>If no wearable calories are recorded, Rep calculates an estimate using the MET (Metabolic Equivalent of Task) formula — the same method used by exercise scientists and most fitness apps:</p>
+        <p style="margin-top:0.5rem;"><code>Calories = MET × Body Weight (kg) × Duration (hours)</code></p>
+        <p style="margin-top:0.5rem;">Rep uses a MET of <strong>3.5</strong> for strength training sessions, which is the established value for moderate-intensity resistance exercise. Your body weight is pulled from Apple Health or Health Connect if available, or from your profile if not.</p>
+        <div class="callout info" style="margin-top:0.5rem;">
+          <p>This is an estimate. Individual calorie burn varies based on fitness level, intensity, and other factors — treat it as a useful ballpark, not a precise measurement.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="card" style="margin-top:2rem;margin-bottom:0;">
+      <div class="contact-row">
+        <div class="contact-row-left">
+          <strong>Still have a question?</strong>
+          <p>We'll get back to you as soon as we can.</p>
+        </div>
+        <a class="btn" href="mailto:rep.app.dev@gmail.com?subject=Rep%20FAQ%20Question">
+          Email us ↗
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    Rep — The Workout App &nbsp;·&nbsp;
+    <a href="index.html">Privacy Policy</a> &nbsp;·&nbsp;
+    <a href="delete-account.html">Delete Account</a> &nbsp;·&nbsp;
+    Questions? <a href="mailto:rep.app.dev@gmail.com">rep.app.dev@gmail.com</a>
+  </footer>
+
+</body>
+</html>
