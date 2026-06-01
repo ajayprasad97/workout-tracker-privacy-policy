@@ -309,7 +309,7 @@
   <main>
     <div class="page-heading">
       <h1>Privacy Policy</h1>
-      <p>Effective Date: April 19, 2026 &nbsp;·&nbsp; Last Updated: April 19, 2026</p>
+      <p>Effective Date: April 19, 2026 &nbsp;·&nbsp; Last Updated: May 31, 2026</p>
     </div>
 
     <div class="overview">
@@ -335,7 +335,25 @@
           <li>Exercise names, sets, repetitions, weights, and workout dates.</li>
           <li>Rate of perceived exertion (RPE) and warmup flags (optional per set).</li>
           <li>Training goal, experience level, equipment, session length, days per week, and any reported problem areas or injuries (entered during onboarding to filter exercises).</li>
+          <li><strong>Calorie estimates</strong> — active calories burned per workout, sourced either from your wearable (Apple Health / Google Health Connect) or a MET-based formula if no wearable is available. Stored locally on your device only; not uploaded to Firebase.</li>
         </ul>
+      </div>
+      <div class="content-row">
+        <h3>Health &amp; Fitness Platform Data <span style="color:var(--text-muted);font-weight:400;">(Optional — requires your permission)</span></h3>
+        <p>If you grant permission, Rep reads the following data from <strong>Apple Health</strong> (iOS) or <strong>Google Health Connect</strong> (Android) to personalise your training and recovery recommendations:</p>
+        <ul>
+          <li><strong>Sleep</strong> — last night's total sleep duration.</li>
+          <li><strong>Resting heart rate</strong> — most recent reading and a 30-day history.</li>
+          <li><strong>Active calories burned</strong> — today's workout-tagged energy expenditure.</li>
+          <li><strong>Body weight &amp; body fat percentage</strong> — most recent reading and a 12-week history.</li>
+          <li><strong>Menstrual cycle</strong> — current phase and day in cycle (used to adjust training load suggestions).</li>
+          <li><strong>Imported workouts</strong> — recent workout sessions recorded by other health apps (e.g. Strava, Nike Run Club), to show cross-app activity in your history.</li>
+        </ul>
+        <div class="callout info" style="margin-top:0.5rem;margin-bottom:0;">
+          <p><strong>This data never leaves your device.</strong> All health platform readings are processed locally and are never uploaded to Firebase or any remote server. They are not included in anonymised analytics.</p>
+        </div>
+        <p style="margin-top:0.5rem;">Rep also <strong>writes</strong> completed strength workouts back to Apple Health / Google Health Connect so they count toward your Activity rings and can be seen by other health apps. Only the workout start time, end time, activity type, and calorie estimate are written.</p>
+        <p style="margin-top:0.4rem;">You can revoke health permissions at any time from your device's Health app settings. Rep works normally without health permissions — all health features are optional.</p>
       </div>
       <div class="content-row">
         <h3>Body Statistics <span style="color:var(--text-muted);font-weight:400;">(Optional)</span></h3>
@@ -370,19 +388,21 @@
             <tr><td>Authenticating your account</td><td>Email address</td></tr>
             <tr><td>Displaying your profile</td><td>Display name, body stats (if provided)</td></tr>
             <tr><td>Generating personalised workouts</td><td>Goal, equipment, training age, injuries, days per week</td></tr>
-            <tr><td>Logging and tracking progress</td><td>Exercises, sets, reps, weights, dates</td></tr>
+            <tr><td>Logging and tracking progress</td><td>Exercises, sets, reps, weights, dates, calorie estimates</td></tr>
+            <tr><td>Readiness score &amp; recovery recommendations</td><td>Sleep, resting heart rate, menstrual phase, body weight — read locally from Apple Health / Health Connect; never uploaded</td></tr>
             <tr><td>Deload week detection &amp; split cycling</td><td>Workout dates, cycle week counter</td></tr>
-            <tr><td>Workout history display</td><td>Workout data</td></tr>
+            <tr><td>Workout history display</td><td>Workout data (stored on-device)</td></tr>
             <tr><td>Social feed</td><td>Posts, likes, comments, follow relationships</td></tr>
-            <tr><td>Product improvement and recommendations</td><td>Anonymised, aggregated workout activity (exercise names, muscle groups, sets, reps — <strong>no body stats, no personal identifiers</strong>)</td></tr>
+            <tr><td>Product improvement and recommendations</td><td>Anonymised, aggregated workout activity (exercise names, muscle groups, sets, reps — <strong>no health data, no body stats, no personal identifiers</strong>)</td></tr>
             <tr><td>Trainer–athlete collaboration</td><td>Role, client list, shared workout history</td></tr>
-            <tr><td>Syncing across your devices</td><td>All data listed above</td></tr>
+            <tr><td>Writing workouts to Apple Health / Health Connect</td><td>Workout start/end time, activity type, calorie estimate — written to your device's health platform only</td></tr>
+            <tr><td>Syncing across your devices</td><td>Workout metadata, sets, social data — health platform data is excluded from sync</td></tr>
           </tbody>
         </table>
       </div>
     </div>
     <div class="callout info">
-      <p><strong>We do not:</strong> sell your personal information &nbsp;·&nbsp; show advertisements &nbsp;·&nbsp; share your data with advertisers &nbsp;·&nbsp; use your data for third-party marketing &nbsp;·&nbsp; use your body statistics (height, weight) in any aggregate or analytics pipeline.</p>
+      <p><strong>We do not:</strong> sell your personal information &nbsp;·&nbsp; show advertisements &nbsp;·&nbsp; share your data with advertisers &nbsp;·&nbsp; use your data for third-party marketing &nbsp;·&nbsp; use your body statistics, health sensor readings, or Apple Health / Health Connect data in any aggregate or analytics pipeline.</p>
     </div>
 
     <!-- 3. Where Your Data Is Stored -->
@@ -391,6 +411,8 @@
       <div class="content-row">
         <h3>On Your Device</h3>
         <p>All workout data is stored locally in an SQLite database (via <code>expo-sqlite</code>) on your device. The app works fully offline. Local data is protected by your device's OS-level security (iOS sandbox + Secure Enclave encryption; Android app sandboxing).</p>
+        <p style="margin-top:0.4rem;"><strong>Health platform data</strong> (sleep, heart rate, body weight, menstrual cycle, active calories) is read from Apple Health / Google Health Connect and processed entirely on-device. None of this data is written to Firebase or any remote server.</p>
+        <p style="margin-top:0.4rem;"><strong>Calorie estimates</strong> are stored only in the local SQLite database and are never uploaded to Firebase.</p>
       </div>
       <div class="content-row">
         <h3>Firebase Cloud (Google)</h3>
@@ -512,7 +534,7 @@
     Rep — The Workout App &nbsp;·&nbsp;
     <a href="delete-account.html">Delete Account</a> &nbsp;·&nbsp;
     Questions? <a href="mailto:rep.app.dev@gmail.com">rep.app.dev@gmail.com</a> &nbsp;·&nbsp;
-    Effective April 19, 2026
+    Last Updated May 31, 2026
   </footer>
 
 </body>
