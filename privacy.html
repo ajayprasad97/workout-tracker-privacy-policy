@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy — Rep: The Workout App</title>
   <link rel="canonical" href="https://repworkout.app/privacy" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -34,7 +34,7 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Inter', sans-serif;
+      font-family: 'Bricolage Grotesque', sans-serif;
       font-size: 15px;
       line-height: 1.65;
       min-height: 100vh;
@@ -46,31 +46,20 @@
     header {
       background: var(--surface);
       border-bottom: 1px solid var(--border);
-      padding: 0 1.25rem;
+      padding: 0 5%;
       height: 56px;
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      justify-content: space-between;
+      gap: 1rem;
     }
-    .logo-mark {
-      width: 32px;
-      height: 32px;
-      background: var(--accent);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: var(--accent-fg);
-      flex-shrink: 0;
-    }
-    .header-title {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--text);
-    }
-    .header-title span { color: var(--text-muted); font-weight: 400; }
+    .header-logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; flex-shrink: 0; }
+    .header-title { font-size: 0.95rem; font-weight: 600; color: var(--text); }
+    .site-nav { display: flex; align-items: center; gap: 0.15rem; }
+    .site-nav-link { padding: 6px 11px; border-radius: 6px; font-size: 0.85rem; font-weight: 500; color: var(--text-sub); text-decoration: none; transition: color 0.2s, background 0.2s; white-space: nowrap; }
+    .site-nav-link:hover { color: var(--text); background: var(--surface-muted); }
+    .btn-join { margin-left: 0.5rem; padding: 7px 18px; border-radius: 50px; background: var(--accent); color: var(--accent-fg); font-size: 0.82rem; font-weight: 600; text-decoration: none; white-space: nowrap; transition: opacity 0.2s; }
+    .btn-join:hover { opacity: 0.85; }
 
     /* ── Main layout ── */
     main {
@@ -291,8 +280,16 @@
 <body>
 
   <header>
-    <div class="logo-mark">R</div>
-    <div class="header-title">Rep <span>— The Workout App</span></div>
+    <a href="/" class="header-logo">
+      <img src="assets/icon.png" alt="Rep" style="width:32px;height:32px;border-radius:8px;display:block;" />
+      <span class="header-title">Rep</span>
+    </a>
+    <nav class="site-nav">
+      <a href="/#features" class="site-nav-link">Features</a>
+      <a href="faq.html" class="site-nav-link">FAQ</a>
+      <a href="privacy.html" class="site-nav-link">Privacy</a>
+      <a href="invite/" class="btn-join">Join Beta</a>
+    </nav>
   </header>
 
   <main>

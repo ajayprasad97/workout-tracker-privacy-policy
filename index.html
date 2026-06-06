@@ -3,12 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy — Rep: The Workout App</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <title>Rep — The Workout App</title>
+  <meta name="description" content="Rep is a workout tracker that adapts to you — personalised splits, recovery insights, and a social feed built for serious athletes." />
+  <meta property="og:title" content="Rep — The Workout App" />
+  <meta property="og:description" content="Train smarter. Progress faster. Rep adapts to your goals, equipment, and schedule." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* ── Sand & Clay theme ── */
+    /* ── Sand & Clay tokens ── */
     :root {
       --bg:            #F7EEDC;
       --surface:       #FCF6E9;
@@ -17,528 +26,863 @@
       --text:          #3E2819;
       --text-sub:      #735440;
       --text-muted:    #A38872;
-      --text-on-accent:#FFFFFF;
       --border:        #DFD0B4;
       --divider:       rgba(62,40,25,0.09);
       --accent:        #B8603C;
       --accent-fg:     #FFFFFF;
       --accent-muted:  rgba(184,96,60,0.14);
+      --accent-border: rgba(184,96,60,0.35);
       --accent-text:   #934A2C;
-      --danger-bg:     rgba(185,74,63,0.12);
-      --danger-text:   #8F3528;
-      --info-bg:       rgba(62,40,25,0.06);
-      --warn-bg:       rgba(185,74,63,0.09);
     }
+
+    html { scroll-behavior: smooth; }
 
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Inter', sans-serif;
-      font-size: 15px;
-      line-height: 1.65;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    /* ── Header ── */
-    header {
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      padding: 0 1.25rem;
-      height: 56px;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .logo-mark {
-      width: 32px;
-      height: 32px;
-      background: var(--accent);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: var(--accent-fg);
-      flex-shrink: 0;
-    }
-    .header-title {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--text);
-    }
-    .header-title span { color: var(--text-muted); font-weight: 400; }
-
-    /* ── Main layout ── */
-    main {
-      flex: 1;
-      max-width: 680px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 2rem 1.25rem 3.5rem;
+    /* ── Gradient text ── */
+    .gradient-text {
+      background: linear-gradient(135deg, #3E2819 0%, #8C3D1F 45%, #B8603C 75%, #A06827 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
-    /* ── Page heading ── */
-    .page-heading {
-      margin-bottom: 1.75rem;
-    }
-    .page-heading h1 {
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 0.35rem;
-    }
-    .page-heading p {
-      font-size: 0.88rem;
-      color: var(--text-sub);
-    }
-
-    /* ── Overview banner ── */
-    .overview {
-      background: var(--accent-muted);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--accent);
-      border-radius: 10px;
-      padding: 0.875rem 1rem;
-      font-size: 0.84rem;
-      color: var(--text-sub);
-      line-height: 1.65;
-      margin-bottom: 2rem;
-    }
-    .overview strong { color: var(--text); }
-
-    /* ── Section labels (uppercase eyebrow) ── */
-    .section-label {
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 0.55rem;
-      margin-top: 2rem;
-    }
-    .section-label:first-of-type { margin-top: 0; }
-
-    /* ── Section heading (h2) ── */
-    h2 {
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 0.55rem;
-      margin-top: 2rem;
-    }
-
-    /* ── Cards ── */
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      overflow: hidden;
-      margin-bottom: 1rem;
-    }
-
-    /* ── Content rows inside cards ── */
-    .content-row {
-      padding: 0.875rem 1rem;
-      border-bottom: 1px solid var(--divider);
-    }
-    .content-row:last-child { border-bottom: none; }
-    .content-row h3 {
-      font-size: 0.88rem;
-      font-weight: 500;
-      color: var(--text);
-      margin-bottom: 0.25rem;
-    }
-    .content-row p,
-    .content-row ul,
-    .content-row ol {
-      font-size: 0.81rem;
-      color: var(--text-sub);
-      line-height: 1.65;
-    }
-    .content-row ul,
-    .content-row ol {
-      padding-left: 1.1rem;
-      margin-top: 0.3rem;
-    }
-    .content-row li { margin-bottom: 0.25rem; }
-    .content-row li strong { color: var(--text); font-weight: 500; }
-    .content-row a { color: var(--accent-text); text-decoration: none; }
-    .content-row a:hover { text-decoration: underline; }
-    .content-row code {
-      background: var(--surface-alt);
-      border-radius: 4px;
-      padding: 1px 5px;
-      font-size: 0.78rem;
-      color: var(--accent-text);
-    }
-
-    /* ── Data table ── */
-    .table-wrap {
-      overflow-x: auto;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.81rem;
-    }
-    thead { background: var(--surface-muted); }
-    th {
-      text-align: left;
-      padding: 0.65rem 1rem;
-      font-weight: 600;
-      font-size: 0.78rem;
-      color: var(--text-sub);
-      border-bottom: 1px solid var(--border);
-    }
-    td {
-      padding: 0.65rem 1rem;
-      color: var(--text-sub);
-      border-bottom: 1px solid var(--divider);
-      vertical-align: top;
-    }
-    tr:last-child td { border-bottom: none; }
-    tr:nth-child(even) td { background: var(--surface-muted); }
-    td strong { color: var(--text); font-weight: 500; }
-
-    /* ── Callout boxes ── */
-    .callout {
-      border-radius: 10px;
-      padding: 0.875rem 1rem;
-      font-size: 0.81rem;
-      color: var(--text-sub);
-      line-height: 1.65;
-      margin-bottom: 1rem;
-    }
-    .callout.no {
-      background: var(--surface-muted);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--accent);
-    }
-    .callout.info {
-      background: var(--info-bg);
-      border: 1px solid var(--border);
-      border-left: 3px solid #735440;
-    }
-    .callout.warn {
-      background: var(--danger-bg);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--accent);
-    }
-    .callout p { margin: 0; }
-    .callout strong { color: var(--text); font-weight: 500; }
-    .callout a { color: var(--accent-text); }
-
-    /* ── Info note (standalone) ── */
-    .info-note {
-      background: var(--surface-muted);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 0.875rem 1rem;
-      font-size: 0.81rem;
-      color: var(--text-sub);
-      line-height: 1.65;
-      margin-bottom: 1rem;
-    }
-    .info-note strong { color: var(--text); }
-
-    /* ── Contact box ── */
-    .contact-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 1rem;
-    }
-    .contact-row-left strong {
-      display: block;
-      font-size: 0.88rem;
-      font-weight: 500;
-      color: var(--text);
-      margin-bottom: 0.15rem;
-    }
-    .contact-row-left p {
-      font-size: 0.81rem;
-      color: var(--text-sub);
-    }
+    /* ── Buttons ── */
     .btn {
       display: inline-flex;
       align-items: center;
-      background: var(--accent);
-      color: var(--accent-fg);
-      font-size: 0.81rem;
-      font-weight: 600;
-      padding: 0.5rem 1rem;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 10px 20px;
       border-radius: 8px;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
       text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: opacity 0.2s, transform 0.15s;
       white-space: nowrap;
-      flex-shrink: 0;
-      transition: opacity 0.15s;
     }
-    .btn:hover { opacity: 0.85; }
+    .btn:hover { opacity: 0.85; transform: translateY(-1px); }
+    .btn-primary { background: var(--accent); color: var(--accent-fg); }
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1.5px solid var(--border);
+    }
+    .btn-outline:hover { background: var(--surface-muted); opacity: 1; }
+    .btn-lg { padding: 13px 26px; font-size: 0.97rem; border-radius: 10px; }
+    .btn-pill { border-radius: 50px; }
+
+    /* ── Header ── */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      padding: 0 5%;
+      gap: 1rem;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    header.scrolled {
+      background: rgba(247,238,220,0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 1px 0 var(--border);
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .logo-img {
+      width: 34px; height: 34px;
+      border-radius: 8px;
+      display: block;
+      flex-shrink: 0;
+    }
+    .logo-name { font-size: 1rem; font-weight: 600; color: var(--text); }
+
+    .collapsible-header {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      gap: 1rem;
+      overflow: hidden;
+      transition: width 0.3s ease, opacity 0.3s ease;
+    }
+
+    nav {
+      display: flex;
+      gap: 0.15rem;
+      margin: 0 auto;
+      align-items: center;
+    }
+    .nav-link {
+      padding: 6px 13px;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-sub);
+      text-decoration: none;
+      transition: color 0.2s, background 0.2s;
+      white-space: nowrap;
+    }
+    .nav-link:hover { color: var(--text); background: var(--surface-muted); }
+
+    .header-actions { display: flex; align-items: center; gap: 0.75rem; flex-shrink: 0; }
+
+    #menu-btn {
+      display: none;
+      position: absolute;
+      right: 1.1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.6rem;
+      color: var(--text);
+      z-index: 110;
+      line-height: 1;
+    }
+
+    /* ── Phone frame ── */
+    .phone-frame {
+      position: relative;
+      width: 256px;
+      aspect-ratio: 9 / 19.5;
+      border-radius: 38px;
+      border: 7px solid #281808;
+      overflow: hidden;
+      background: var(--surface-alt);
+      box-shadow:
+        0 50px 100px rgba(62,40,25,0.18),
+        0 20px 40px rgba(184,96,60,0.12),
+        inset 0 0 0 1px rgba(255,255,255,0.1);
+      flex-shrink: 0;
+    }
+    .phone-frame::before {
+      content: '';
+      position: absolute;
+      top: 11px; left: 50%;
+      transform: translateX(-50%);
+      width: 72px; height: 18px;
+      background: #281808;
+      border-radius: 20px;
+      z-index: 2;
+    }
+    .phone-screenshot {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+    .phone-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(170deg, var(--surface-muted) 0%, var(--surface-alt) 55%, #E2CCB0 100%);
+      display: flex;
+      align-items: center; justify-content: center;
+      flex-direction: column;
+      gap: 0.6rem;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      text-align: center;
+      padding: 1rem;
+      padding-top: 3rem;
+    }
+    .phone-placeholder i { font-size: 2.2rem; opacity: 0.35; }
+    .phone-placeholder span { opacity: 0.6; line-height: 1.4; }
+
+    /* ── Hero ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 110px 5% 70px;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      background: var(--accent-muted);
+      border: 1px solid var(--accent-border);
+      color: var(--accent-text);
+      padding: 5px 16px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+    .hero-title {
+      font-size: clamp(2.6rem, 7vw, 5.25rem);
+      font-weight: 700;
+      line-height: 1.07;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+    }
+    .hero-sub {
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      color: var(--text-sub);
+      max-width: 500px;
+      margin: 0 auto 2.25rem;
+      line-height: 1.7;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 4rem;
+    }
+    .hero-phone-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+    .hero-glow {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 380px; height: 380px;
+      background: radial-gradient(circle, rgba(184,96,60,0.22) 0%, rgba(160,104,39,0.10) 45%, transparent 70%);
+      filter: blur(55px);
+      pointer-events: none;
+    }
+
+    /* ── Strip ── */
+    #strip {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 0;
+      overflow: hidden;
+      height: 52px;
+      display: flex;
+      align-items: center;
+    }
+    .strip-track {
+      display: flex;
+      gap: 0;
+      align-items: center;
+      animation: strip-scroll 22s linear infinite;
+      white-space: nowrap;
+    }
+    .strip-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: var(--text-sub);
+      padding: 0 2rem;
+      flex-shrink: 0;
+    }
+    .strip-item i { color: var(--accent); font-size: 0.95rem; }
+    @keyframes strip-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ── Features ── */
+    #features {
+      padding: 96px 8%;
+    }
+    .section-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-text);
+      margin-bottom: 0.55rem;
+    }
+    .section-title {
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: var(--text);
+      line-height: 1.12;
+      margin-bottom: 3.5rem;
+    }
+    .features-layout {
+      display: flex;
+      gap: 6%;
+      align-items: flex-start;
+    }
+    .features-list {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 3.75rem;
+    }
+    .feat-item {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+    .feat-icon {
+      width: 54px; height: 54px;
+      min-width: 54px;
+      background: var(--accent-muted);
+      border: 1px solid var(--accent-border);
+      border-radius: 13px;
+      display: flex;
+      align-items: center; justify-content: center;
+      font-size: 1.45rem;
+      color: var(--accent);
+    }
+    .feat-text h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.01em;
+    }
+    .feat-text p {
+      font-size: 0.88rem;
+      color: var(--text-sub);
+      line-height: 1.65;
+    }
+    .features-phone-col {
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+    }
+    .features-phone-sticky {
+      position: sticky;
+      top: 96px;
+    }
+
+    /* ── Cards ── */
+    #cards {
+      padding: 96px 8%;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .cards-grid {
+      margin-top: 2.5rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .feat-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem 1.5rem;
+      display: flex;
+      gap: 1.1rem;
+      align-items: flex-start;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .feat-card:hover {
+      box-shadow: 0 6px 24px rgba(62,40,25,0.09);
+      transform: translateY(-2px);
+    }
+    .card-icon-wrap {
+      font-size: 1.45rem;
+      color: var(--accent);
+      min-width: 1.45rem;
+      margin-top: 2px;
+    }
+    .card-body h3 {
+      font-size: 0.97rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+    .card-body p {
+      font-size: 0.83rem;
+      color: var(--text-sub);
+      line-height: 1.6;
+    }
+
+
+    /* ── CTA section ── */
+    #cta {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 96px 8%;
+    }
+    .cta-inner {
+      display: flex;
+      align-items: center;
+      gap: 6%;
+    }
+    .cta-content { flex: 1; }
+    .cta-content h2 {
+      font-size: clamp(1.8rem, 4vw, 2.75rem);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: var(--text);
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+    }
+    .cta-content p {
+      font-size: 0.95rem;
+      color: var(--text-sub);
+      margin-bottom: 2rem;
+      max-width: 420px;
+      line-height: 1.65;
+    }
+    .cta-btns { display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-start; }
+    .cta-phone-col {
+      flex-shrink: 0;
+      display: flex;
+      align-items: flex-end;
+    }
 
     /* ── Footer ── */
     footer {
       border-top: 1px solid var(--border);
-      background: var(--surface);
-      padding: 1rem 1.25rem;
-      text-align: center;
+      padding: 3rem 8%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .footer-brand { min-width: 0; }
+    .footer-brand-logo { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; }
+    .footer-tagline { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
+    .footer-col h4 {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 0.87rem;
+      color: var(--text-sub);
+      text-decoration: none;
+      margin-bottom: 0.45rem;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--text); }
+    .footer-bottom {
+      width: 100%;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--divider);
       font-size: 0.78rem;
       color: var(--text-muted);
     }
-    footer a { color: var(--accent-text); text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
 
-    @media (max-width: 480px) {
-      .contact-row { flex-direction: column; align-items: flex-start; }
-      main { padding: 1.5rem 1rem 2.5rem; }
+    /* ── Responsive ── */
+    @media (max-width: 860px) {
+      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 520px) {
+      .cards-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 1024px) {
+      #menu-btn { display: block; }
+      .collapsible-header {
+        position: fixed;
+        right: 0; top: 0;
+        flex-direction: column;
+        width: 0;
+        height: 100vh;
+        height: 100dvh;
+        background: var(--surface);
+        border-left: 1px solid var(--border);
+        padding: 5rem 1.5rem 2rem;
+        opacity: 0;
+        overflow-y: auto;
+        align-items: flex-end;
+        justify-content: flex-start;
+        z-index: 99;
+      }
+      .collapsible-header.open { width: 68vw; opacity: 1; }
+      nav { flex-direction: column; align-items: flex-end; gap: 0.15rem; margin: 0; width: 100%; }
+      .nav-link { font-size: 1.05rem; width: 100%; text-align: right; }
+      .header-actions { flex-direction: column; width: 100%; align-items: flex-end; }
+      .features-layout { flex-direction: column-reverse; }
+      .features-phone-col { width: 100%; }
+      .features-phone-sticky { position: static; display: flex; justify-content: center; }
+      .cta-inner { flex-direction: column; }
+      .cta-content { text-align: center; }
+      .cta-btns { align-items: center; }
+      .cta-content p { margin-left: auto; margin-right: auto; }
+      .cta-phone-col { display: none; }
+}
+    @media (max-width: 640px) {
+      #hero { padding: 100px 5% 60px; }
+      #features, #cards, #cta { padding-left: 5%; padding-right: 5%; }
+      .phone-frame { width: 220px; }
+      footer { grid-template-columns: 1fr; padding: 2.5rem 5%; }
     }
   </style>
 </head>
+
 <body>
 
-  <header>
-    <div class="logo-mark">R</div>
-    <div class="header-title">Rep <span>— The Workout App</span></div>
-  </header>
+<!-- ═══════════════════════════════════════ HEADER ═══ -->
+<header id="site-header">
+  <a href="." class="header-logo">
+    <img class="logo-img" src="assets/icon.png" alt="Rep logo" />
+    <span class="logo-name">Rep</span>
+  </a>
 
-  <main>
-    <div class="page-heading">
-      <h1>Privacy Policy</h1>
-      <p>Effective Date: April 19, 2026 &nbsp;·&nbsp; Last Updated: May 31, 2026</p>
+  <div class="collapsible-header" id="nav-collapse">
+    <nav>
+      <a class="nav-link" href="#features">Features</a>
+      <a class="nav-link" href="faq.html">FAQ</a>
+      <a class="nav-link" href="privacy.html">Privacy</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-primary btn-pill" href="invite/">
+        Join Beta <i class="bi bi-arrow-right"></i>
+      </a>
     </div>
+  </div>
 
-    <div class="overview">
-      <strong>Plain-language summary:</strong> We collect only what the app needs to work. We do not sell your data, show ads, or share your information with marketers. Your workout data stays on your device and syncs securely to Firebase (Google). You can delete everything at any time.
+  <button id="menu-btn" onclick="toggleNav()" aria-label="Open menu">
+    <i class="bi bi-list" id="menu-icon"></i>
+  </button>
+</header>
+
+
+<!-- ═══════════════════════════════════════ HERO ═══ -->
+<section id="hero">
+  <div class="hero-eyebrow reveal-up">
+    Currently in Beta &nbsp;·&nbsp; Public release coming soon
+  </div>
+
+  <h1 class="hero-title gradient-text reveal-up">
+    Train smarter.<br>Progress faster.
+  </h1>
+
+  <p class="hero-sub reveal-up">
+    Rep is a workout tracker that adapts to you — personalised splits,
+    recovery insights, and a social feed built for serious athletes.
+  </p>
+
+  <div class="hero-ctas reveal-up">
+    <a class="btn btn-primary btn-lg" href="invite/">
+      <i class="bi bi-apple"></i> Join the Beta
+    </a>
+    <a class="btn btn-outline btn-lg" href="#features">
+      <i class="bi bi-play-circle"></i> Explore features
+    </a>
+  </div>
+
+  <div class="hero-phone-wrap reveal-up">
+    <div class="hero-glow"></div>
+    <div class="phone-frame" id="hero-phone">
+      <img src="assets/social.png" alt="Rep social feed" class="phone-screenshot">
     </div>
+  </div>
+</section>
 
-    <!-- 1. Information We Collect -->
-    <h2>1. Information We Collect</h2>
-    <div class="card">
-      <div class="content-row">
-        <h3>Account Information</h3>
-        <p>When you create an account we collect:</p>
-        <ul>
-          <li><strong>Email address</strong> — used to sign in via Firebase Authentication.</li>
-          <li><strong>Display name</strong> — shown on your profile and in the social feed.</li>
-        </ul>
-        <p style="margin-top:0.4rem;">We do not collect your legal name, phone number, or payment information.</p>
-      </div>
-      <div class="content-row">
-        <h3>Workout Data</h3>
-        <p>When you log workouts we collect:</p>
-        <ul>
-          <li>Exercise names, sets, repetitions, weights, and workout dates.</li>
-          <li>Rate of perceived exertion (RPE) and warmup flags (optional per set).</li>
-          <li>Training goal, experience level, equipment, session length, days per week, and any reported problem areas or injuries (entered during onboarding to filter exercises).</li>
-          <li><strong>Calorie estimates</strong> — active calories burned per workout, sourced either from your wearable (Apple Health / Google Health Connect) or a MET-based formula if no wearable is available. Stored locally on your device only; not uploaded to Firebase.</li>
-        </ul>
-      </div>
-      <div class="content-row">
-        <h3>Health &amp; Fitness Platform Data <span style="color:var(--text-muted);font-weight:400;">(Optional — requires your permission)</span></h3>
-        <p>If you grant permission, Rep reads the following data from <strong>Apple Health</strong> (iOS) or <strong>Google Health Connect</strong> (Android) to personalise your training and recovery recommendations:</p>
-        <ul>
-          <li><strong>Sleep</strong> — last night's total sleep duration.</li>
-          <li><strong>Resting heart rate</strong> — most recent reading and a 30-day history.</li>
-          <li><strong>Active calories burned</strong> — today's workout-tagged energy expenditure.</li>
-          <li><strong>Body weight &amp; body fat percentage</strong> — most recent reading and a 12-week history.</li>
-          <li><strong>Menstrual cycle</strong> — current phase and day in cycle (used to adjust training load suggestions).</li>
-          <li><strong>Imported workouts</strong> — recent workout sessions recorded by other health apps (e.g. Strava, Nike Run Club), to show cross-app activity in your history.</li>
-        </ul>
-        <div class="callout info" style="margin-top:0.5rem;margin-bottom:0;">
-          <p><strong>This data never leaves your device.</strong> All health platform readings are processed locally and are never uploaded to Firebase or any remote server. They are not included in anonymised analytics.</p>
+
+<!-- ═══════════════════════════════════════ STRIP ═══ -->
+<section id="strip" aria-hidden="true">
+  <div class="strip-track">
+    <span class="strip-item"><i class="bi bi-lightning-charge-fill"></i> Smart workout splits</span>
+    <span class="strip-item"><i class="bi bi-bar-chart-fill"></i> Progress tracking</span>
+    <span class="strip-item"><i class="bi bi-heart-pulse-fill"></i> Recovery insights</span>
+    <span class="strip-item"><i class="bi bi-people-fill"></i> Social feed</span>
+    <span class="strip-item"><i class="bi bi-apple"></i> Apple Health sync</span>
+    <span class="strip-item"><i class="bi bi-shield-check-fill"></i> Privacy first</span>
+    <!-- duplicate for seamless loop -->
+    <span class="strip-item"><i class="bi bi-lightning-charge-fill"></i> Smart workout splits</span>
+    <span class="strip-item"><i class="bi bi-bar-chart-fill"></i> Progress tracking</span>
+    <span class="strip-item"><i class="bi bi-heart-pulse-fill"></i> Recovery insights</span>
+    <span class="strip-item"><i class="bi bi-people-fill"></i> Social feed</span>
+    <span class="strip-item"><i class="bi bi-apple"></i> Apple Health sync</span>
+    <span class="strip-item"><i class="bi bi-shield-check-fill"></i> Privacy first</span>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════ FEATURES ═══ -->
+<section id="features">
+  <div class="reveal-up">
+    <p class="section-eyebrow">Why Rep</p>
+    <h2 class="section-title">Everything your training needs</h2>
+  </div>
+
+  <div class="features-layout">
+
+    <div class="features-list">
+
+      <div class="feat-item reveal-up">
+        <div class="feat-icon"><i class="bi bi-cpu-fill"></i></div>
+        <div class="feat-text">
+          <h3>Science-based workout planning</h3>
+          <p>Tell Rep your goals, equipment, and schedule. It builds a periodised program — Push/Pull/Legs, Upper/Lower, or Full Body — using established sports science principles, with auto-scheduled deload weeks so you never overtrain.</p>
         </div>
-        <p style="margin-top:0.5rem;">Rep also <strong>writes</strong> completed strength workouts back to Apple Health / Google Health Connect so they count toward your Activity rings and can be seen by other health apps. Only the workout start time, end time, activity type, and calorie estimate are written.</p>
-        <p style="margin-top:0.4rem;">You can revoke health permissions at any time from your device's Health app settings. Rep works normally without health permissions — all health features are optional.</p>
       </div>
-      <div class="content-row">
-        <h3>Body Statistics <span style="color:var(--text-muted);font-weight:400;">(Optional)</span></h3>
-        <p>You may optionally enter your body weight and height. These fields are entirely optional. If not provided, no body-stat data is collected.</p>
+
+      <div class="feat-item reveal-up">
+        <div class="feat-icon"><i class="bi bi-clipboard2-check-fill"></i></div>
+        <div class="feat-text">
+          <h3>Track every set, rep & weight</h3>
+          <p>Log exercises with RPE, warmup flags, and rest timers. Full history means Rep always knows your last working weight and suggests the right progression.</p>
+        </div>
       </div>
-      <div class="content-row">
-        <h3>Social Interactions</h3>
-        <p>If you use the social feed, we collect workout posts you share, likes and comments you make, and the users you follow and who follow you. Trainer–athlete relationships are also stored if you use the trainer role.</p>
+
+      <div class="feat-item reveal-up">
+        <div class="feat-icon"><i class="bi bi-heart-pulse-fill"></i></div>
+        <div class="feat-text">
+          <h3>Recovery & readiness score</h3>
+          <p>Rep reads sleep, resting heart rate, and body weight from Apple Health or Google Health Connect — entirely on-device — and flags when to push hard or back off.</p>
+        </div>
       </div>
-      <div class="content-row">
-        <h3>Technical and Usage Data</h3>
-        <p>We do not operate third-party analytics pipelines. Firebase (our infrastructure provider) may collect limited technical information as described in their own privacy policy (see Section 3.2). This can include device type, operating system version, and crash reports.</p>
-        <p style="margin-top:0.4rem;">We also collect anonymised, aggregated workout activity data (exercise names, muscle groups, sets, and repetitions) to improve workout recommendations. This analysis is performed on data that has been stripped of all identifying information — it cannot be traced back to you individually. You can opt out of this at any time from the app's Settings screen.</p>
+
+      <div class="feat-item reveal-up">
+        <div class="feat-icon"><i class="bi bi-fire"></i></div>
+        <div class="feat-text">
+          <h3>Honest calorie tracking</h3>
+          <p>Active calories from your wearable via Apple Health or Health Connect. No wearable? A MET-based estimate keeps things sensible. Stored locally — never uploaded.</p>
+        </div>
       </div>
-      <div class="content-row">
-        <h3>Location Data</h3>
-        <div class="callout no" style="margin-top:0.4rem;margin-bottom:0;">
-          <p><strong>We do not collect location data.</strong> A location feature has not launched. If that changes, you will be asked for explicit permission and this policy will be updated before any location data is ever collected.</p>
+
+
+    </div>
+
+    <div class="features-phone-col">
+      <div class="features-phone-sticky">
+        <div class="phone-frame" style="width:240px;">
+          <img src="assets/workout.png" alt="Rep workout screen" class="phone-screenshot">
         </div>
       </div>
     </div>
 
-    <!-- 2. How We Use Your Information -->
-    <h2>2. How We Use Your Information</h2>
-    <div class="card">
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr><th>Purpose</th><th>Data Used</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Authenticating your account</td><td>Email address</td></tr>
-            <tr><td>Displaying your profile</td><td>Display name, body stats (if provided)</td></tr>
-            <tr><td>Generating personalised workouts</td><td>Goal, equipment, training age, injuries, days per week</td></tr>
-            <tr><td>Logging and tracking progress</td><td>Exercises, sets, reps, weights, dates, calorie estimates</td></tr>
-            <tr><td>Readiness score &amp; recovery recommendations</td><td>Sleep, resting heart rate, menstrual phase, body weight — read locally from Apple Health / Health Connect; never uploaded</td></tr>
-            <tr><td>Deload week detection &amp; split cycling</td><td>Workout dates, cycle week counter</td></tr>
-            <tr><td>Workout history display</td><td>Workout data (stored on-device)</td></tr>
-            <tr><td>Social feed</td><td>Posts, likes, comments, follow relationships</td></tr>
-            <tr><td>Product improvement and recommendations</td><td>Anonymised, aggregated workout activity (exercise names, muscle groups, sets, reps — <strong>no health data, no body stats, no personal identifiers</strong>)</td></tr>
-            <tr><td>Trainer–athlete collaboration</td><td>Role, client list, shared workout history</td></tr>
-            <tr><td>Writing workouts to Apple Health / Health Connect</td><td>Workout start/end time, activity type, calorie estimate — written to your device's health platform only</td></tr>
-            <tr><td>Syncing across your devices</td><td>Workout metadata, sets, social data — health platform data is excluded from sync</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div class="callout info">
-      <p><strong>We do not:</strong> sell your personal information &nbsp;·&nbsp; show advertisements &nbsp;·&nbsp; share your data with advertisers &nbsp;·&nbsp; use your data for third-party marketing &nbsp;·&nbsp; use your body statistics, health sensor readings, or Apple Health / Health Connect data in any aggregate or analytics pipeline.</p>
-    </div>
+  </div>
+</section>
 
-    <!-- 3. Where Your Data Is Stored -->
-    <h2>3. Where Your Data Is Stored</h2>
-    <div class="card">
-      <div class="content-row">
-        <h3>On Your Device</h3>
-        <p>All workout data is stored locally in an SQLite database (via <code>expo-sqlite</code>) on your device. The app works fully offline. Local data is protected by your device's OS-level security (iOS sandbox + Secure Enclave encryption; Android app sandboxing).</p>
-        <p style="margin-top:0.4rem;"><strong>Health platform data</strong> (sleep, heart rate, body weight, menstrual cycle, active calories) is read from Apple Health / Google Health Connect and processed entirely on-device. None of this data is written to Firebase or any remote server.</p>
-        <p style="margin-top:0.4rem;"><strong>Calorie estimates</strong> are stored only in the local SQLite database and are never uploaded to Firebase.</p>
-      </div>
-      <div class="content-row">
-        <h3>Firebase Cloud (Google)</h3>
-        <p>When you are signed in, your data is synced to <strong>Google Firebase</strong> (Firestore + Firebase Authentication). Firebase is operated by Google LLC under Google's privacy policy:</p>
-        <ul style="margin-top:0.4rem;">
-          <li><a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy &amp; Security ↗</a></li>
-          <li><a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy ↗</a></li>
-        </ul>
-        <p style="margin-top:0.4rem;">Firebase servers are located primarily in the United States. If you are outside the US, your data is transferred under Google's data-transfer safeguards (including Standard Contractual Clauses where applicable).</p>
-      </div>
-      <div class="content-row">
-        <h3>Exercise Data Source</h3>
-        <p>Exercise names and metadata are sourced from the open-source <a href="https://github.com/yuhonas/free-exercise-db" target="_blank">free-exercise-db ↗</a> project. No personal data is sent to this service. This is a read-only, anonymous data source.</p>
+
+<!-- ═══════════════════════════════════════ CARDS ═══ -->
+<section id="cards">
+  <div class="reveal-up">
+    <p class="section-eyebrow">Built different</p>
+    <h2 class="section-title">Powerful by design. Simple to use.</h2>
+  </div>
+
+  <div class="cards-grid">
+
+    <div class="feat-card reveal-up">
+      <span class="card-icon-wrap"><i class="bi bi-graph-up-arrow"></i></span>
+      <div class="card-body">
+        <h3>Progressive overload</h3>
+        <p>Rep suggests weight increases based on your actual history. No guesswork — smart defaults you can override any time.</p>
       </div>
     </div>
 
-    <!-- 4. Data Sharing -->
-    <h2>4. Data Sharing</h2>
-    <div class="card">
-      <div class="content-row">
-        <p>We do not sell, rent, or share your personal data with third parties, except:</p>
-        <ul style="margin-top:0.4rem;">
-          <li><strong>Firebase/Google</strong> — as the infrastructure provider described above.</li>
-          <li><strong>Other users you interact with</strong> — your display name and posts you explicitly share are visible to other Rep users in the social feed. Likes and comments are attributed to your display name.</li>
-          <li><strong>Your trainer</strong> — if you add a trainer (or are added as a client), that trainer can view your recent workout history in-app. You can remove a trainer at any time.</li>
-          <li><strong>Legal requirements</strong> — if required by law, court order, or to protect the rights, property, or safety of users or the public.</li>
-        </ul>
+    <div class="feat-card reveal-up">
+      <span class="card-icon-wrap"><i class="bi bi-calendar3"></i></span>
+      <div class="card-body">
+        <h3>Auto-deload weeks</h3>
+        <p>After 3–4 weeks of training, Rep automatically schedules a lighter deload week and cycles your split to keep you progressing.</p>
       </div>
     </div>
 
-    <!-- 5. Your Rights and Choices -->
-    <h2>5. Your Rights and Choices</h2>
-    <div class="card">
-      <div class="content-row">
-        <h3>Access and Correction</h3>
-        <p>You can view and edit your display name, body stats, training goal, equipment, injuries, and split preferences directly from the Profile and Settings screens.</p>
-      </div>
-      <div class="content-row">
-        <h3>Analytics Opt-Out</h3>
-        <p>You can opt out of anonymised analytics at any time from the app's <strong>Settings</strong> screen under "Privacy". Opting out prevents your workout activity from being included in aggregate product improvement analysis. Your core workout tracking and social features are not affected.</p>
-      </div>
-      <div class="content-row">
-        <h3>Account and Data Deletion</h3>
-        <p>You can delete your account at any time from the Profile screen. This permanently deletes:</p>
-        <ul style="margin-top:0.4rem;">
-          <li>Your Firebase Authentication account.</li>
-          <li>All Firestore data (posts, likes, comments, follow relationships, trainer connections).</li>
-          <li>The local SQLite database on your device.</li>
-        </ul>
-        <p style="margin-top:0.4rem;">Deletion is permanent and cannot be undone. Residual copies in Firebase automated backups are purged within 30 days.</p>
-        <p style="margin-top:0.4rem;">If you cannot delete your account in-app, email <a href="mailto:rep.app.dev@gmail.com">rep.app.dev@gmail.com</a> and we will complete deletion within 30 days.</p>
-      </div>
-      <div class="content-row">
-        <h3>California Residents (CCPA)</h3>
-        <p>California residents may request to know what personal information we collect, request deletion, and opt out of the sale of personal information. <strong>We do not sell personal information.</strong> Contact <a href="mailto:rep.app.dev@gmail.com">rep.app.dev@gmail.com</a> to exercise your rights.</p>
-      </div>
-      <div class="content-row">
-        <h3>European Residents (GDPR)</h3>
-        <p>If you are in the EEA, UK, or Switzerland, you have rights under the GDPR including: access, rectification, erasure, restriction, objection, and data portability. Our lawful basis for processing is contract performance and legitimate interests. Contact <a href="mailto:rep.app.dev@gmail.com">rep.app.dev@gmail.com</a> to exercise these rights.</p>
+    <div class="feat-card reveal-up">
+      <span class="card-icon-wrap"><i class="bi bi-shield-lock-fill"></i></span>
+      <div class="card-body">
+        <h3>Privacy first</h3>
+        <p>Your workout data lives on your device. Health data (sleep, HRV, body weight) is never uploaded anywhere. You control what syncs.</p>
       </div>
     </div>
 
-    <!-- 6. Data Retention -->
-    <h2>6. Data Retention</h2>
-    <div class="card">
-      <div class="content-row">
-        <p>We retain your data for as long as your account is active. When you delete your account, all associated data is deleted as described in Section 5.3. We do not retain data after deletion, except as may remain in automated backups (cleared within 30 days) or as required by law.</p>
+    <div class="feat-card reveal-up">
+      <span class="card-icon-wrap"><i class="bi bi-palette-fill"></i></span>
+      <div class="card-body">
+        <h3>6 beautiful themes</h3>
+        <p>Midnight Indigo, Forest Noir, Crimson Ember, Cream Sage, Fog & Slate, and Sand & Clay. Match your vibe.</p>
       </div>
     </div>
 
-    <!-- 7. Data Security -->
-    <h2>7. Data Security</h2>
-    <div class="card">
-      <div class="content-row">
-        <ul>
-          <li>Authentication is managed by Firebase Authentication (protections against credential stuffing and brute-force).</li>
-          <li>Data in transit is encrypted via HTTPS/TLS.</li>
-          <li>Data at rest in Firestore is encrypted by Google (AES-256).</li>
-          <li>Local on-device data is protected by OS sandboxing and device encryption.</li>
-        </ul>
-        <p style="margin-top:0.5rem;">No method of transmission over the internet is 100% secure. We take commercially reasonable steps to protect your data but cannot guarantee absolute security.</p>
+    <div class="feat-card reveal-up">
+      <span class="card-icon-wrap"><i class="bi bi-cloud-slash-fill"></i></span>
+      <div class="card-body">
+        <h3>Fully offline</h3>
+        <p>Everything works without internet. Your data lives in a local database on your device and syncs to the cloud when you're back online.</p>
       </div>
     </div>
 
-    <!-- 8. Children's Privacy -->
-    <h2>8. Children's Privacy</h2>
-    <div class="callout warn">
-      <p><strong>Rep is not directed to children under 13.</strong> We do not knowingly collect personal information from children under 13. If you believe your child has provided us with personal data, contact us at <a href="mailto:rep.app.dev@gmail.com">rep.app.dev@gmail.com</a> and we will delete that information promptly in compliance with COPPA.</p>
-    </div>
-    <div class="info-note">
-      Users aged 13–17 should review this policy with a parent or guardian before creating an account.
-    </div>
-
-    <!-- 9. Changes to This Policy -->
-    <h2>9. Changes to This Policy</h2>
-    <div class="card">
-      <div class="content-row">
-        <p>We may update this Privacy Policy from time to time. When we make material changes we will update the "Last Updated" date above and display an in-app notice (or notify you by email) before the changes take effect. Continued use of the app after an update constitutes acceptance of the revised policy. If you disagree, you may delete your account before the changes take effect.</p>
+    <div class="feat-card reveal-up">
+      <span class="card-icon-wrap"><i class="bi bi-people-fill"></i></span>
+      <div class="card-body">
+        <h3>Social feed</h3>
+        <p>Share workouts, follow other athletes, and stay accountable together. See what your friends are lifting in real time.</p>
       </div>
     </div>
 
-    <!-- 10. Contact Us -->
-    <h2>10. Contact Us</h2>
-    <div class="card" style="margin-bottom:0.75rem;">
-      <div class="contact-row">
-        <div class="contact-row-left">
-          <strong>Questions, concerns, or data requests?</strong>
-          <p>We'll respond within 30 days. Send from the email linked to your account.</p>
-        </div>
-        <a class="btn" href="mailto:rep.app.dev@gmail.com?subject=Privacy%20Policy%20Enquiry">
-          Email us ↗
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════ CTA ═══ -->
+<section id="cta">
+  <div class="cta-inner">
+    <div class="cta-content reveal-up">
+      <p class="section-eyebrow">Available now</p>
+      <h2>Start tracking smarter today</h2>
+      <p>Join the beta on iOS via TestFlight. Android early access available on request — we'll get in touch as soon as it's ready.</p>
+      <div class="cta-btns">
+        <a class="btn btn-primary btn-lg" href="https://testflight.apple.com/join/c3CjMU17" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-apple"></i> Join Beta on TestFlight
+        </a>
+        <a class="btn btn-outline btn-lg" href="mailto:rep.app.dev@gmail.com?subject=Android%20Beta%20Request&body=Hi%2C%20I%27d%20love%20to%20test%20Rep%20on%20Android!">
+          Request Android Access
+        </a>
+        <a class="btn btn-outline btn-lg" href="invite/">
+          <i class="bi bi-person-plus"></i> Invite a friend
         </a>
       </div>
     </div>
 
-  </main>
+    <div class="cta-phone-col reveal-up">
+      <div class="phone-frame" style="width:230px;">
+        <img src="assets/share.png" alt="Rep workout summary" class="phone-screenshot">
+      </div>
+    </div>
+  </div>
+</section>
 
-  <footer>
-    Rep — The Workout App &nbsp;·&nbsp;
-    <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
-    <a href="tos.html">Terms of Service</a> &nbsp;·&nbsp;
-    <a href="faq.html">FAQ</a> &nbsp;·&nbsp;
-    <a href="delete-account.html">Delete Account</a> &nbsp;·&nbsp;
-    Questions? <a href="mailto:rep.app.dev@gmail.com">rep.app.dev@gmail.com</a> &nbsp;·&nbsp;
-    Last Updated June 6, 2026
-  </footer>
+
+<!-- ═══════════════════════════════════════ FOOTER ═══ -->
+<footer>
+  <div class="footer-brand">
+    <div class="footer-brand-logo">
+      <img class="logo-img" src="assets/icon.png" alt="Rep logo" style="width:40px;height:40px;border-radius:10px;" />
+      <span class="logo-name">Rep</span>
+    </div>
+    <p class="footer-tagline">The workout tracker<br>that adapts to you.</p>
+  </div>
+
+  <div class="footer-col">
+    <h4>Get the app</h4>
+    <a href="https://testflight.apple.com/join/c3CjMU17" target="_blank" rel="noopener noreferrer">iOS Beta (TestFlight)</a>
+    <a href="mailto:rep.app.dev@gmail.com?subject=Android%20Beta%20Request">Android Beta Request</a>
+    <a href="invite/">Invite a Friend</a>
+  </div>
+
+  <div class="footer-col">
+    <h4>Legal &amp; Support</h4>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="tos.html">Terms of Service</a>
+    <a href="faq.html">FAQ</a>
+    <a href="delete-account.html">Delete Account</a>
+    <a href="mailto:rep.app.dev@gmail.com">Contact</a>
+  </div>
+
+  <p class="footer-bottom">
+    &copy; 2026 Rep — The Workout App &nbsp;·&nbsp; Questions? <a href="mailto:rep.app.dev@gmail.com" style="color:var(--accent-text);">rep.app.dev@gmail.com</a>
+  </p>
+</footer>
+
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js" integrity="sha512-B1lby8cGcAUU3GR+Fd809/ZxgHbfwJMp0jLTVfHiArTuUt++VqSlJpaJvhNtRf3NERaxDNmmxkdx2o+aHd4bvw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/ScrollTrigger.min.js" integrity="sha512-AY2+JxnBETJ0wcXnLPCcZJIJx0eimyhz3OJ55k2Jx4RtYC+XdIi2VtJQ+tP3BaTst4otlGG1TtPJ9fKrAUnRdQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+  // ── Header scroll ──
+  const siteHeader = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    siteHeader.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+
+  // ── Mobile nav ──
+  const navCollapse = document.getElementById('nav-collapse');
+  const menuIcon = document.getElementById('menu-icon');
+  let navOpen = false;
+
+  function toggleNav() {
+    navOpen = !navOpen;
+    navCollapse.classList.toggle('open', navOpen);
+    menuIcon.className = navOpen ? 'bi bi-x' : 'bi bi-list';
+    if (navOpen) {
+      setTimeout(() => window.addEventListener('click', onNavOutside), 10);
+    } else {
+      window.removeEventListener('click', onNavOutside);
+    }
+  }
+
+  function onNavOutside(e) {
+    const btn = document.getElementById('menu-btn');
+    if (!navCollapse.contains(e.target) && !btn.contains(e.target)) {
+      toggleNav();
+    }
+  }
+
+  navCollapse.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => { if (navOpen) toggleNav(); });
+  });
+
+  // ── GSAP ──
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Hero: animate in immediately on load (not scroll-triggered)
+  const heroItems = document.querySelectorAll('#hero .reveal-up');
+  gsap.set(heroItems, { opacity: 0, y: 28 });
+  gsap.to(heroItems, {
+    opacity: 1, y: 0,
+    duration: 0.75,
+    stagger: 0.12,
+    ease: 'power2.out',
+    delay: 0.1,
+  });
+
+  // Hero phone: start tilted, straighten on scroll
+  gsap.set('#hero-phone', {
+    rotateX: '20deg',
+    scale: 0.88,
+    transformOrigin: 'bottom center',
+    transformPerspective: 1200,
+  });
+  gsap.to('#hero-phone', {
+    rotateX: '0deg',
+    scale: 1,
+    scrollTrigger: {
+      trigger: '#hero',
+      start: 'top top',
+      end: 'bottom bottom',
+      scrub: 1.2,
+    }
+  });
+
+  // All other sections: hide reveal-up items and animate in on scroll
+  const belowHeroSections = Array.from(document.querySelectorAll('section')).filter(s => s.id !== 'hero');
+  belowHeroSections.forEach(sec => {
+    const items = sec.querySelectorAll('.reveal-up');
+    if (!items.length) return;
+    gsap.set(items, { opacity: 0, y: 32 });
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: sec,
+        start: '6% 88%',
+        end: '18% 92%',
+      }
+    }).to(items, {
+      opacity: 1, y: 0,
+      duration: 0.65,
+      stagger: 0.1,
+      ease: 'power2.out',
+    });
+  });
+</script>
 
 </body>
 </html>
