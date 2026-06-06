@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service — Rep: The Workout App</title>
+  <link rel="canonical" href="https://repworkout.app/tos" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:            #F7EEDC;
+      --surface:       #FCF6E9;
+      --surface-alt:   #EDDFC4;
+      --surface-muted: #F1E5CB;
+      --text:          #3E2819;
+      --text-sub:      #735440;
+      --text-muted:    #A38872;
+      --text-on-accent:#FFFFFF;
+      --border:        #DFD0B4;
+      --divider:       rgba(62,40,25,0.09);
+      --accent:        #B8603C;
+      --accent-fg:     #FFFFFF;
+      --accent-muted:  rgba(184,96,60,0.14);
+      --accent-text:   #934A2C;
+      --danger-bg:     rgba(185,74,63,0.12);
+      --danger-text:   #8F3528;
+      --info-bg:       rgba(62,40,25,0.06);
+      --warn-bg:       rgba(185,74,63,0.09);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.25rem;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      background: var(--accent);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--accent-fg);
+      flex-shrink: 0;
+    }
+    .header-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .header-title span { color: var(--text-muted); font-weight: 400; }
+
+    main {
+      flex: 1;
+      max-width: 680px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 3.5rem;
+    }
+
+    .page-heading {
+      margin-bottom: 1.75rem;
+    }
+    .page-heading h1 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+    .page-heading p {
+      font-size: 0.88rem;
+      color: var(--text-sub);
+    }
+
+    .overview {
+      background: var(--accent-muted);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 10px;
+      padding: 0.875rem 1rem;
+      font-size: 0.84rem;
+      color: var(--text-sub);
+      line-height: 1.65;
+      margin-bottom: 2rem;
+    }
+    .overview strong { color: var(--text); }
+
+    h2 {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.55rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .content-row {
+      padding: 0.875rem 1rem;
+      border-bottom: 1px solid var(--divider);
+    }
+    .content-row:last-child { border-bottom: none; }
+    .content-row h3 {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+    .content-row p,
+    .content-row ul,
+    .content-row ol {
+      font-size: 0.81rem;
+      color: var(--text-sub);
+      line-height: 1.65;
+    }
+    .content-row ul,
+    .content-row ol {
+      padding-left: 1.1rem;
+      margin-top: 0.3rem;
+    }
+    .content-row li { margin-bottom: 0.25rem; }
+    .content-row li strong { color: var(--text); font-weight: 500; }
+    .content-row a { color: var(--accent-text); text-decoration: none; }
+    .content-row a:hover { text-decoration: underline; }
+
+    .callout {
+      border-radius: 10px;
+      padding: 0.875rem 1rem;
+      font-size: 0.81rem;
+      color: var(--text-sub);
+      line-height: 1.65;
+      margin-bottom: 1rem;
+    }
+    .callout.info {
+      background: var(--info-bg);
+      border: 1px solid var(--border);
+      border-left: 3px solid #735440;
+    }
+    .callout.warn {
+      background: var(--danger-bg);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+    }
+    .callout.suggest {
+      background: var(--accent-muted);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+    }
+    .callout p { margin: 0; }
+    .callout p + p { margin-top: 0.5rem; }
+    .callout strong { color: var(--text); font-weight: 500; }
+    .callout a { color: var(--accent-text); }
+
+    .info-note {
+      background: var(--surface-muted);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.875rem 1rem;
+      font-size: 0.81rem;
+      color: var(--text-sub);
+      line-height: 1.65;
+      margin-bottom: 1rem;
+    }
+    .info-note strong { color: var(--text); }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem;
+    }
+    .contact-row-left strong {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.15rem;
+    }
+    .contact-row-left p {
+      font-size: 0.81rem;
+      color: var(--text-sub);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      background: var(--accent);
+      color: var(--accent-fg);
+      font-size: 0.81rem;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: opacity 0.15s;
+    }
+    .btn:hover { opacity: 0.85; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      padding: 1rem 1.25rem;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+    footer a { color: var(--accent-text); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 480px) {
+      .contact-row { flex-direction: column; align-items: flex-start; }
+      main { padding: 1.5rem 1rem 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-mark">R</div>
+    <div class="header-title">Rep <span>— The Workout App</span></div>
+  </header>
+
+  <main>
+    <div class="page-heading">
+      <h1>Terms of Service</h1>
+      <p>Effective Date: June 6, 2026 &nbsp;·&nbsp; Last Updated: June 6, 2026</p>
+    </div>
+
+    <div class="overview">
+      <strong>Plain-language summary:</strong> By using Rep you agree to these Terms. Use the app fairly, keep your username appropriate, and remember that all workout suggestions are exactly that — suggestions. Rep is not a medical service. Consult a professional before starting any new exercise program.
+    </div>
+
+    <!-- 1. Acceptance of Terms -->
+    <h2>1. Acceptance of Terms</h2>
+    <div class="card">
+      <div class="content-row">
+        <p>By downloading, installing, or using Rep — The Workout App ("Rep", "the App", "we", "our"), you agree to be bound by these Terms of Service ("Terms") and our <a href="privacy.html">Privacy Policy</a>, which is incorporated by reference. If you do not agree, do not use the App.</p>
+      </div>
+    </div>
+
+    <!-- 2. Eligibility -->
+    <h2>2. Eligibility</h2>
+    <div class="card">
+      <div class="content-row">
+        <ul>
+          <li>You must be at least <strong>13 years old</strong> to create an account.</li>
+          <li>Users aged 13–17 should review these Terms with a parent or guardian.</li>
+          <li>By creating an account, you confirm that you meet the age requirement and that the information you provide is accurate.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 3. Your Account -->
+    <h2>3. Your Account</h2>
+    <div class="card">
+      <div class="content-row">
+        <h3>Account Security</h3>
+        <p>You are responsible for maintaining the confidentiality of your login credentials and for all activity that occurs under your account. Notify us immediately at <a href="mailto:rep.app.dev@gmail.com">rep.app.dev@gmail.com</a> if you suspect unauthorized access.</p>
+      </div>
+      <div class="content-row">
+        <h3>Accurate Information</h3>
+        <p>You agree to provide accurate information when creating your account and to keep it up to date. One account per person — creating multiple accounts to circumvent restrictions is not permitted.</p>
+      </div>
+    </div>
+
+    <!-- 4. Acceptable Use -->
+    <h2>4. Acceptable Use</h2>
+    <div class="card">
+      <div class="content-row">
+        <p>You may use Rep only for lawful personal fitness tracking and social fitness features. You may not:</p>
+        <ul>
+          <li>Harass, threaten, or harm other users.</li>
+          <li>Impersonate another person or user.</li>
+          <li>Use automated tools, bots, or scrapers to interact with the service.</li>
+          <li>Attempt to reverse-engineer, decompile, or extract data from Rep.</li>
+          <li>Post spam, misleading content, or content that infringes another party's rights.</li>
+          <li>Use Rep in any way that violates applicable law or regulation.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 5. Community Standards & Username Moderation -->
+    <h2>5. Community Standards &amp; Username Moderation</h2>
+    <div class="card">
+      <div class="content-row">
+        <h3>Display Names</h3>
+        <p>Your display name must be appropriate for a general audience. Profane, offensive, hateful, or sexually explicit usernames are not permitted.</p>
+      </div>
+      <div class="content-row">
+        <h3>Moderation Process</h3>
+        <p>We review usernames and content that are reported by other users or identified by our team.</p>
+        <ul>
+          <li><strong>First violation:</strong> You will receive a warning and be required to update your display name within 7 days. Your account remains active during this period.</li>
+          <li><strong>Continued or repeat violations:</strong> Your account may be suspended or permanently closed without further notice.</li>
+        </ul>
+      </div>
+      <div class="content-row">
+        <h3>Social Content</h3>
+        <p>Posts, comments, and shared workouts visible in the social feed must follow the same community standards. We reserve the right to remove any content that violates these standards without prior notice.</p>
+      </div>
+    </div>
+
+    <!-- 6. Fitness Suggestions — Not Professional Advice -->
+    <h2>6. Fitness Suggestions — Not Professional Advice</h2>
+    <div class="callout suggest">
+      <p><strong>Everything Rep recommends is a suggestion only.</strong> Workout plans, readiness scores, recovery tips, deload recommendations, training load adjustments, and calorie estimates are generated algorithmically from the data you provide. They are intended for informational and motivational purposes — nothing more.</p>
+    </div>
+    <div class="card">
+      <div class="content-row">
+        <h3>Rep Is Not a Medical Service</h3>
+        <p>Rep is not a medical device, a licensed healthcare provider, or a certified personal trainer. Nothing in the App constitutes professional medical, nutritional, or fitness advice. Rep makes no claim that its suggestions are suitable for your individual health status or fitness level.</p>
+      </div>
+      <div class="content-row">
+        <h3>Your Responsibility</h3>
+        <ul>
+          <li>Consult a qualified physician or healthcare provider before beginning any new exercise program, especially if you have existing health conditions, injuries, or concerns.</li>
+          <li>Listen to your body. Stop any activity that causes pain, discomfort, or unusual symptoms and seek professional guidance.</li>
+          <li>Use your own judgement about which exercises and training loads are appropriate for you. Rep's suggestions are a starting point, not a prescription.</li>
+        </ul>
+      </div>
+      <div class="content-row">
+        <h3>Calorie &amp; Readiness Estimates</h3>
+        <p>Calorie burn estimates and readiness scores are approximations based on available data (wearable readings or MET-based formulas). They should not be used for clinical or medical decision-making.</p>
+      </div>
+    </div>
+
+    <!-- 7. Health Platform Integration -->
+    <h2>7. Health Platform Integration</h2>
+    <div class="card">
+      <div class="content-row">
+        <p>Rep can connect with <strong>Apple Health</strong> (iOS) and <strong>Google Health Connect</strong> (Android) to read biometric data such as sleep, resting heart rate, body weight, and menstrual cycle phase. This data is processed entirely on your device and is never uploaded to our servers.</p>
+        <p style="margin-top:0.4rem;">By connecting a health platform, you confirm that you understand Rep uses this data only to generate on-device suggestions, and not to diagnose, treat, cure, or prevent any health condition.</p>
+        <p style="margin-top:0.4rem;">You can revoke health permissions at any time from your device's Health app settings. Rep functions normally without health permissions — all health features are optional.</p>
+      </div>
+    </div>
+
+    <!-- 8. User Content -->
+    <h2>8. User Content</h2>
+    <div class="card">
+      <div class="content-row">
+        <h3>Ownership</h3>
+        <p>You own the content you create in Rep — your workout logs, posts, and comments belong to you. By posting content to the social feed, you grant Rep a non-exclusive, royalty-free license to display that content to other users within the App for as long as your account exists.</p>
+      </div>
+      <div class="content-row">
+        <h3>Content Standards</h3>
+        <p>You are responsible for everything you post. Do not post content that is:</p>
+        <ul>
+          <li>False, misleading, or deceptive.</li>
+          <li>Harassing, defamatory, threatening, or harmful to others.</li>
+          <li>In violation of another person's privacy, intellectual property, or other rights.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 9. Trainer Features -->
+    <h2>9. Trainer Features</h2>
+    <div class="card">
+      <div class="content-row">
+        <p>Rep allows users to take on a Trainer role and connect with athlete clients. Trainers can view their clients' workout history within the App. Both parties must consent to the trainer–athlete relationship in-app, and either party may end it at any time.</p>
+        <p style="margin-top:0.4rem;"><strong>Rep does not verify trainer credentials.</strong> It is your responsibility to evaluate any trainer you choose to work with. Trainer suggestions are subject to the same "suggestions only" disclaimer in Section 6.</p>
+      </div>
+    </div>
+
+    <!-- 10. Termination -->
+    <h2>10. Termination</h2>
+    <div class="card">
+      <div class="content-row">
+        <h3>By You</h3>
+        <p>You may delete your account at any time from the Profile screen. See our <a href="privacy.html">Privacy Policy</a> for details on what happens to your data upon deletion.</p>
+      </div>
+      <div class="content-row">
+        <h3>By Us</h3>
+        <p>We may suspend or permanently close your account if you:</p>
+        <ul>
+          <li>Violate any part of these Terms.</li>
+          <li>Use Rep in a way that harms other users or the service.</li>
+          <li>Create new accounts following a prior suspension.</li>
+          <li>Engage in fraudulent, abusive, or illegal activity.</li>
+        </ul>
+        <p style="margin-top:0.4rem;">For serious violations (e.g., threats, illegal content) we may act without prior warning.</p>
+      </div>
+    </div>
+
+    <!-- 11. Disclaimers -->
+    <h2>11. Disclaimers</h2>
+    <div class="card">
+      <div class="content-row">
+        <p>Rep is provided <strong>"as is"</strong> and <strong>"as available"</strong> without warranties of any kind, express or implied. We do not guarantee:</p>
+        <ul>
+          <li>Uninterrupted, error-free, or secure operation of the service.</li>
+          <li>That workout suggestions will produce any particular fitness outcome.</li>
+          <li>The accuracy of calorie estimates, readiness scores, or other algorithmic outputs.</li>
+        </ul>
+        <p style="margin-top:0.4rem;">All suggestions are provided for informational purposes only. Your use of Rep is at your own risk.</p>
+      </div>
+    </div>
+
+    <!-- 12. Limitation of Liability -->
+    <h2>12. Limitation of Liability</h2>
+    <div class="card">
+      <div class="content-row">
+        <p>To the maximum extent permitted by applicable law, Rep and its developers shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of — or inability to use — the App. This includes, without limitation:</p>
+        <ul>
+          <li>Physical injury or illness resulting from following in-app suggestions.</li>
+          <li>Loss of workout data.</li>
+          <li>Interruption or discontinuation of the service.</li>
+        </ul>
+        <p style="margin-top:0.4rem;">Nothing in these Terms limits liability for death or personal injury caused by our negligence, or for any other liability that cannot be excluded under applicable law.</p>
+      </div>
+    </div>
+
+    <!-- 13. Governing Law -->
+    <h2>13. Governing Law</h2>
+    <div class="card">
+      <div class="content-row">
+        <p>These Terms are governed by the laws of the jurisdiction in which the developer operates, without regard to conflict-of-law principles. Any disputes arising under these Terms shall be resolved in the courts of that jurisdiction, unless otherwise required by applicable consumer protection law in your country of residence.</p>
+      </div>
+    </div>
+
+    <!-- 14. Changes to These Terms -->
+    <h2>14. Changes to These Terms</h2>
+    <div class="card">
+      <div class="content-row">
+        <p>We may update these Terms from time to time. When we make material changes we will update the "Last Updated" date above and notify you via in-app notice or email before the changes take effect. Continued use of Rep after changes take effect constitutes your acceptance of the revised Terms. If you disagree with an update, you may delete your account before it takes effect.</p>
+      </div>
+    </div>
+
+    <!-- 15. Contact -->
+    <h2>15. Contact</h2>
+    <div class="card" style="margin-bottom:0.75rem;">
+      <div class="contact-row">
+        <div class="contact-row-left">
+          <strong>Questions about these Terms?</strong>
+          <p>We'll respond within 30 days.</p>
+        </div>
+        <a class="btn" href="mailto:rep.app.dev@gmail.com?subject=Terms%20of%20Service%20Enquiry">
+          Email us ↗
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    Rep — The Workout App &nbsp;·&nbsp;
+    <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
+    <a href="tos.html">Terms of Service</a> &nbsp;·&nbsp;
+    <a href="faq.html">FAQ</a> &nbsp;·&nbsp;
+    <a href="delete-account.html">Delete Account</a> &nbsp;·&nbsp;
+    Questions? <a href="mailto:rep.app.dev@gmail.com">rep.app.dev@gmail.com</a> &nbsp;·&nbsp;
+    Last Updated June 6, 2026
+  </footer>
+
+</body>
+</html>
