@@ -899,10 +899,22 @@
 </script>
 
 
+<script type="importmap">
+{
+  "imports": {
+    "react":            "https://esm.sh/react@18.3.1",
+    "react/jsx-runtime":"https://esm.sh/react@18.3.1/jsx-runtime",
+    "react-dom":        "https://esm.sh/react-dom@18.3.1",
+    "react-dom/client": "https://esm.sh/react-dom@18.3.1/client",
+    "three":            "https://esm.sh/three@0.163.0"
+  }
+}
+</script>
+
 <script type="module">
-  import React from 'https://esm.sh/react@18';
-  import { createRoot } from 'https://esm.sh/react-dom@18/client';
-  import { ShaderGradient, ShaderGradientCanvas } from 'https://esm.sh/@shadergradient/react?deps=react@18,react-dom@18';
+  import React from 'react';
+  import { createRoot } from 'react-dom/client';
+  import { ShaderGradient, ShaderGradientCanvas } from 'https://esm.sh/@shadergradient/react?external=react,react-dom,three';
 
   const mount = document.getElementById('hero-gradient-mount');
   if (mount) {
