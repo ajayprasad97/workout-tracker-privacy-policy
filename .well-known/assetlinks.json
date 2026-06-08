@@ -1,11 +1,14 @@
 [
   {
-    "relation": ["delegate_permission/common.handle_all_urls"],
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
     "target": {
       "namespace": "android_app",
       "package_name": "com.reptheworkout.app",
       "sha256_cert_fingerprints": [
-        "FA:A3:59:F6:DD:22:6C:72:B9:4E:50:B5:CB:49:0E:B4:43:57:FB:84:71:9D:DC:2D:12:47:F7:73:85:92:EB:3F"
+        "FA:A3:59:F6:DD:22:6C:72:B9:4E:50:B5:CB:49:0E:B4:43:57:FB:84:71:9D:DC:2D:12:47:F7:73:85:92:EB:3F",
+        "D3:8C:1E:DA:3F:B7:B2:3C:BC:01:73:E1:32:5E:A8:FA:51:FC:52:5E:37:34:26:A7:62:FB:79:9F:E5:AA:E2:1D"
       ]
     }
   }
